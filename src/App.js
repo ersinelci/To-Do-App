@@ -55,7 +55,7 @@ function App() {
   function getMessage() {
     const percentage = numberComplete / numberTotal * 100;
     if (numberTotal === 0) {
-      return 'Add at least one item for today'
+      return 'Add at least one item for today 👊'
     }
     if (percentage === 0) {
       return 'Try to do at least one! 🙏';
