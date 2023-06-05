@@ -9,17 +9,18 @@ function App() {
   const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
-    if (tasks.length === 0) return;
+    const storedTasks = JSON.parse(localStorage.getItem('tasks'));
+    if (storedTasks) {
+      setTasks(storedTasks);
+    }
+  }, []);
+
+  useEffect(() => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }, [tasks]);
 
-  useEffect(() => {
-    const tasks = JSON.parse(localStorage.getItem('tasks'));
-    setTasks(tasks || []);
-  }, []);
-
   function addTask(name) {
-    if (!name.trim()) {
+    if (name.length === 0) {
       setErrorMessage("We need tasks to do. Please enter something 🙌");
       return;
     }
@@ -37,7 +38,7 @@ function App() {
   }
 
   function removeAllTasks () {
-    setTasks ([])
+    setTasks ([]);
   }
 
   function updateTaskDone(taskIndex, newDone) {

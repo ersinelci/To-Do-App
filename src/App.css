@@ -23,9 +23,10 @@ body {
     background: none;
     color: #fff;
     border: 0;
-    padding: 0 8px;
+    padding: 0px 8px;
     display: block;
     width: 100%;
+    margin-left: 2px;
   }
   
   form button {
