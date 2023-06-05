@@ -1,20 +1,27 @@
-import {useState} from "react";
+import { useState } from "react";
 
-export default function TaskForm({onAdd}) {
-  const [taskName,setTaskName] = useState('');
+export default function TaskForm({ onAdd, setErrorMessage }) {
+  const [taskName, setTaskName] = useState("");
+
   function handleSubmit(ev) {
     ev.preventDefault();
-    if (taskName.length === 0) {return alert("Please enter a valid target")}
     onAdd(taskName);
-    setTaskName('');
+    setTaskName("");
+   
+    
   }
+
+  
+
   return (
     <form onSubmit={handleSubmit}>
       <button>+</button>
-      <input type="text"
-             value={taskName}
-             onChange={ev => setTaskName(ev.target.value)}
-             placeholder="Your next task..."/>
+      <input
+        type="text"
+        value={taskName}
+        onChange={(ev) => setTaskName(ev.target.value)}
+        placeholder="Your next task..."
+      />
     </form>
   );
 }
