@@ -4,6 +4,7 @@ export default function TaskForm({onAdd}) {
   const [taskName,setTaskName] = useState('');
   function handleSubmit(ev) {
     ev.preventDefault();
+    if (taskName.length === 0) {return alert("Please enter a valid target")}
     onAdd(taskName);
     setTaskName('');
   }
