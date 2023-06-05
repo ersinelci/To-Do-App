@@ -3,6 +3,7 @@ import TaskForm from "./components/TaskForm";
 import Task from "./components/Task"
 import { useEffect, useState } from "react";
 
+
 function App() {
   const [tasks, setTasks] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
@@ -33,6 +34,10 @@ function App() {
     setTasks(prev => {
       return prev.filter((taskObject, index) => index !== indexToRemove);
     });
+  }
+
+  function removeAllTasks () {
+    setTasks ([])
   }
 
   function updateTaskDone(taskIndex, newDone) {
@@ -70,9 +75,13 @@ function App() {
       
       <h1>{numberComplete}/{numberTotal} Complete</h1>
       <h2>{getMessage()}</h2>
-      <h2>{errorMessage && <p style={{ color: "red"}}>{errorMessage}</p>}</h2>
-
-      <TaskForm onAdd={addTask} />
+      <h2>{errorMessage && <p style={{ color: '#61DAFB'}}>{errorMessage}</p>}</h2>
+      
+       <div className="task-form-container">
+        <TaskForm onAdd={addTask} />
+        <button className="remove-all-tasks" onClick={removeAllTasks}>Clear All</button>
+      </div>
+      
       {tasks.map((task, index) => (
         <Task
           {...task}
@@ -80,6 +89,7 @@ function App() {
           onTrash={() => removeTask(index)}
           onToggle={done => updateTaskDone(index, done)}
         />
+
       ))}
     </main>
   );

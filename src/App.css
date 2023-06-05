@@ -1,100 +1,138 @@
-body{
+body {
     background-color: #17181f;
     color: #ddd;
-}
-*{
+  }
+  
+  * {
     box-sizing: border-box;
-}
-main{
+  }
+  
+  main {
     max-width: 300px;
     margin: 20px auto;
-}
-form{
+  }
+  
+  form {
     border: 3px solid #30313D;
     border-radius: 10px;
     padding: 5px;
-    display:flex;
-}
-form input[type="text"] {
+    display: flex;
+  }
+  
+  form input[type="text"] {
     background: none;
-    color:#fff;
-    border:0;
+    color: #fff;
+    border: 0;
     padding: 0 8px;
-    display:block;
+    display: block;
     width: 100%;
-}
-form button{
+  }
+  
+  form button {
     background-color: #61DAFB;
-    border:0;
+    border: 0;
     border-radius: 6px;
-    cursor:pointer;
-}
-
-div.task{
+    cursor: pointer;
+  }
+  
+  div.task {
     background-color: #30313D;
     border-radius: 10px;
     padding: 5px 9px;
     margin-top: 5px;
-    display:flex;
+    display: flex;
     align-items: center;
     transition: opacity .3s linear;
     align-items: center;
-}
-div.task svg{
+  }
+  
+  div.task svg {
     height: 20px;
     margin-right: 6px;
     fill: #61DAFB;
-}
-div.task.done{
+  }
+  
+  div.task.done {
     opacity: 0.3;
-}
-div.task-name, div.task form{
-    flex-grow:1;
-}
-div.task span{
-    position:relative;
-    
-}
-div.task-name, div.task form{
-    flex-grow:1;
-}
-div.task span:before{
-    content:'';
-    display:block;
-    width:0;
-    height:1px;
+  }
+  
+  div.task-name,
+  div.task form {
+    flex-grow: 1;
+  }
+  
+  div.task span {
+    position: relative;
+  }
+  
+  div.task-name,
+  div.task form {
+    flex-grow: 1;
+  }
+  
+  div.task span:before {
+    content: '';
+    display: block;
+    width: 0;
+    height: 1px;
     background-color: #ddd;
-    position:absolute;
+    position: absolute;
     top: 10px;
     transition: width .1s linear;
-}
-div.task.done span:before{
+  }
+  
+  div.task.done span:before {
     width: 100%;
-}
-
-h1,h2 {
+  }
+  
+  h1,
+  h2 {
     text-align: center;
-
-}
-div.checkbox{
+  }
+  
+  div.checkbox {
     display: flex;
     align-items: center;
-}
-button.trash{
-    background:  none;
+  }
+  
+  button.trash {
+    background: none;
     border: none;
     display: flex;
-    cursor:pointer;
-}
-
-button.trash svg{
+    cursor: pointer;
+  }
+  
+  button.trash svg {
     fill: gray;
     height: 14px;
-}
-
-div.task input{
+  }
+  
+  div.task input {
     border: 2px solid #777;
     border-radius: 5px;
     padding: 2px 4px;
-}
+  }
+  
+  .task-form-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
 
+  button.remove-all-tasks {
+    background-color: #dc3545;
+    border: 0;
+    border-radius: 6px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 6px 10px;
+    margin-left: 4px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  button.remove-all-tasks:hover {
+    background-color: #c82333;
+  }
+  
