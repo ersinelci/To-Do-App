@@ -8,6 +8,8 @@ function App() {
   const [tasks, setTasks] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
 
+  useEffect(()=> {document.title = "To Do App"})
+
   useEffect(() => {
     const storedTasks = JSON.parse(localStorage.getItem('tasks'));
     if (storedTasks) {
@@ -37,8 +39,8 @@ function App() {
     });
   }
 
-  function removeAllTasks () {
-    setTasks ([]);
+  function removeAllTasks() {
+    setTasks([]);
   }
 
   function updateTaskDone(taskIndex, newDone) {
@@ -76,16 +78,16 @@ function App() {
 
   return (
     <main>
-      
+
       <h1>{numberComplete}/{numberTotal} Complete</h1>
       <h2>{getMessage()}</h2>
-      <h2>{errorMessage && <p style={{ color: '#61DAFB'}}>{errorMessage}</p>}</h2>
-      
-       <div className="task-form-container">
+      <h2>{errorMessage && <p style={{ color: '#61DAFB' }}>{errorMessage}</p>}</h2>
+
+      <div className="task-form-container">
         <TaskForm onAdd={addTask} />
         <button className="remove-all-tasks" onClick={removeAllTasks}>Clear All</button>
       </div>
-      
+
       {tasks.map((task, index) => (
         <Task
           {...task}
